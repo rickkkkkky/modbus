@@ -1,6 +1,6 @@
 #include "rtu_slave.h"
 
-static uint8_t _tab_input_bits[10] = {0, 1, 1, 0, 0, 1, 1, 0, 0, 1};
+uint8_t _tab_input_bits[10] = {0, 1, 1, 0, 0, 1, 1, 0, 0, 1};
 
 static int get_map_buf(void *buf, int bufsz)
 {
