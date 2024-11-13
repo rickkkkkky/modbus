@@ -72,13 +72,13 @@ void RS485_Recv( uint8_t* data, uint16_t len )
  ```
  
 ## 2.在以下文件中增加你的寄存器地址映射
- 
- |      文件名       |      描述      |
- | ---------------   | ------------ |
- |      bits.c       | 可读写位寄存器 |
- |    registers.c    |  可读写寄存器  |
- |   input_bits.c    |  输入位寄存器  |
- | input_registers.c |   输入寄存器   |
+
+|      文件名       |      描述      |
+| ---------------   | ------------ |
+|      bits.c       | 可读写位寄存器 |
+|    registers.c    |  可读写寄存器  |
+|   input_bits.c    |  输入位寄存器  |
+| input_registers.c |   输入寄存器   |
  
  
 
