@@ -5,31 +5,30 @@
 
 ## 1.找到"rtu_slave.h"文件中以下内容并修改
 
- * ```c
- 
- /**
-  * @brief 初始化函数 可以在这个函数中加入串口初始化函数
-     * @param  
-     */
- void RS485_Init( void )
- {
-     ctx = &ctx_rtu._ctx;
-     agile_modbus_rtu_init(
-         &ctx_rtu, ctx_send_buf, sizeof( ctx_send_buf ), ctx_read_buf, sizeof( ctx_read_buf ) );
-     agile_modbus_set_slave( ctx, 1 );
- }
- 
- /**
-  * @brief 在串口空闲中断时调用 
-     * @param data 
-     * @param len 
-     */
-    void RS485_Recv( uint8_t* data, uint16_t len )
-    {
-        memcpy( ctx_read_buf, data, len );
-        read_len = ( int )len;
-    }
-    //移植需要包含的头文件以实现485发送函数 
+```c
+/**
+ * @brief 初始化函数 可以在这个函数中加入串口初始化函数
+ * @param  
+ */
+void RS485_Init( void )
+{
+    ctx = &ctx_rtu._ctx;
+    agile_modbus_rtu_init(
+        &ctx_rtu, ctx_send_buf, sizeof( ctx_send_buf ), ctx_read_buf, sizeof( ctx_read_buf ) );
+    agile_modbus_set_slave( ctx, 1 );
+}
+
+/**
+ * @brief 在串口空闲中断时调用 
+ * @param data 
+ * @param len 
+ */
+void RS485_Recv( uint8_t* data, uint16_t len )
+{
+    memcpy( ctx_read_buf, data, len );
+    read_len = ( int )len;
+}
+//移植需要包含的头文件以实现485发送函数 
  #include "main.h"
  #include "usart.h"
  // #include "gd32f10x.h"
@@ -68,7 +67,6 @@
              read_len = 0;
          }
      }
-     // }
  }
  
  ```

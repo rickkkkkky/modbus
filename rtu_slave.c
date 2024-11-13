@@ -92,5 +92,4 @@ void modbus_rtu_handler( void* param )
             read_len = 0;
         }
     }
-    // }
 }
