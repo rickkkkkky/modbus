@@ -1,7 +1,7 @@
 #include <string.h>
 #include "rtu_slave.h"
-#include "gd32f10x.h"
-#include "init.h"
+// #include "gd32f10x.h"
+// #include "init.h"
 extern const agile_modbus_slave_util_map_t bit_maps[1];
 extern const agile_modbus_slave_util_map_t input_bit_maps[1];
 extern const agile_modbus_slave_util_map_t register_maps[1];
@@ -48,17 +48,6 @@ void RS485_Data_copy(uint8_t *data, uint16_t len)
 
 void modbus_rtu_handler(void *param)
 {
-
-    // while (1)
-    // {
-    // int read_len = serial_receive(_fd, ctx->read_buf, ctx->read_bufsz, 1000);
-    // if (read_len < 0)
-    // {
-    // break;
-    // }
-    
-    // if (read_len == 0)
-    //     continue;
     if (read_len > 0)
     {
         int send_len = agile_modbus_slave_handle(ctx, read_len, 0,
@@ -66,12 +55,11 @@ void modbus_rtu_handler(void *param)
                                                  &slave_util, NULL);
         if (send_len > 0)
         {
-            // serial_send(_fd, ctx->send_buf, send_len);
-            gpio_bit_write(GPIOA, GPIO_PIN_15, SET);
-            usart_buf_transmit(UART3, ctx->send_buf, (uint16_t)send_len);
+            // gpio_bit_write(GPIOA, GPIO_PIN_15, SET);
+            // usart_buf_transmit(UART3, ctx->send_buf, (uint16_t)send_len);
 
-            while (usart_flag_get(UART3, USART_FLAG_TC) == RESET);
-            gpio_bit_write(GPIOA, GPIO_PIN_15, RESET);
+            // while (usart_flag_get(UART3, USART_FLAG_TC) == RESET);
+            // gpio_bit_write(GPIOA, GPIO_PIN_15, RESET);
             read_len = 0;
         }
     }
