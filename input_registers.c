@@ -16,3 +16,6 @@ static int get_map_buf(void *buf, int bufsz)
 
 const agile_modbus_slave_util_map_t input_register_maps[1] = {
     {0xFFF6, 0xFFFF, get_map_buf, NULL}};
+
+
+
